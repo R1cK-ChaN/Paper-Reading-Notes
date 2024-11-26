@@ -38,6 +38,13 @@
 - **核心模型/方法**: 提出FLIP框架，利用ID模型和PLM模型进行细粒度的特征对齐；通过MLM任务（tabular data恢复masked text data）和MTM任务（cross attention模块与NCE损失函数建模tabular数据恢复）联合建模；使用InfoNCE进行实例级对比学习。  
 - **创新点**: 提出通用框架，实现ID与PLM特征对齐。
 
+### 2. [Unleashing the Retrieval Potential of Large Language Models in Conversational Recommender Systems](https://dl.acm.org/doi/pdf/10.1145/3640457.3688146)
+- **作者/单位**: Hong Kong Baptist University  
+- **关键词**: 对话推荐，可召回LLM，指令调优, Contrastive learning 
+- **研究问题/目标**: 1.在对话推荐系统中结合推荐与生成任务；2.通过对比学习优化检索阶段的文本表示，使检索任务与推荐任务协同工作
+- **核心模型/方法**: 本文以 GRITLM-7B 作为基模型，结合微调技术构建了 ReFICR 模型，并提出了一个两阶段推荐框架：首先在 检索阶段，定义对话是否需要推荐商品，将任务分为物品检索和会话检索两个并行子任务，利用对比学习优化文本嵌入（text embedding）。然后在生成阶段，通过对候选物品进行排序生成最终推荐，结合检索结果和用户会话历史，实现更精准的推荐效果。
+- **创新点**: 本文将对话分解为五个子任务（候选集检索、协作知识检索、排序、对话管理和响应生成），通过对比学习优化文本嵌入，并结合监督式微调提升生成任务性能。
+
 ## 跨域推荐
 
 ### 1. [Cross-Domain Latent Factors Sharing via Implicit Matrix Factorization](https://arxiv.org/pdf/2409.15568)
