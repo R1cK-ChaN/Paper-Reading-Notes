@@ -5,8 +5,8 @@
 ### 1. [Dynamic Stage-aware User Interest Learning for Heterogeneous Sequential Recommendation](https://dl.acm.org/doi/pdf/10.1145/3640457.3688103)
 - **作者/单位**: Shenzhen University  
 - **关键词**: 序列推荐, 异质行为, 动态图, 阶段兴趣学习  
-- **研究问题/目标**: 捕捉用户动态兴趣和异质性行为。
-- **核心模型/方法**: 将用户的异质序列划分为若干子序列，构建阶段性用户兴趣的子图；设计动态图卷积模块以跨阶段方式学习项目表示；行为感知子图表示学习模块来表示用户在特定阶段的兴趣；通过自注意力模块提取用户的兴趣演化模式。  
+- **研究问题/目标**: 捕捉用户动态兴趣变化和不同类行为的异质性。
+- **核心模型/方法**:1. 将用户的异质序列划分为若干子序列，构建阶段性用户兴趣的子图；2. 设计动态图卷积模块以跨阶段方式学习项目表示；3. 行为感知子图表示学习模块来表示用户在特定阶段的兴趣；4. 通过自注意力模块提取用户的兴趣演化模式。  
 - **创新点**: 动态图卷积跨阶段学习用户兴趣。
 
 ## 多模态推荐
@@ -14,27 +14,27 @@
 ### 1. [A Multimodal Single-Branch Embedding Network for Recommendation in Cold-Start and Missing Modality Scenarios](https://dl.acm.org/doi/pdf/10.1145/3640457.3688138)
 - **作者/单位**: Johannes Kepler University Linz  
 - **关键词**: 冷启动推荐, 缺失模态, 多模态单分支embedding  
-- **研究问题/目标**: 解决推荐系统在冷启动和缺失模态场景中的表现。
+- **研究问题/目标**: 优化推荐系统在冷启动和缺失模态场景中的表现。
 - **核心模型/方法**: 提出Single-Branch embedding network for Recommendation (SiBraR)，通过权重共享，在不同模态上使用单一分支embedding网络。  
-- **创新点**: 不同模态间共享embedding空间，提升冷启动表现。
-- **不足之处**: 未考虑模态扩展性。
+- **创新点**: 不同模态间共享embedding空间，有效减少不同模态的Gap，提升冷启动表现。
+- **不足之处**: 未考虑模态维度变化扩展性。
 
 ## 工业优化
 
 ### 1. [Embedding Optimization for Training Large-scale Deep Learning Recommendation Systems with EMBark](https://dl.acm.org/doi/pdf/10.1145/3640457.3688111)
 - **作者/单位**: Nvidia  
 - **关键词**: embedding优化, 大规模训练数据, 吞吐量提升  
-- **研究问题/目标**: 提升大规模推荐系统模型训练中embedding部分的吞吐量。
+- **研究问题/目标**: 提升大规模推荐系统模型训练中embedding阶段的吞吐量，解决embedding耗时占比高的问题。
 - **核心模型/方法**: EMBark使用一个3D元组（i, j, k）表示每个分片，允许每个embedding table跨任意数量的GPU进行分片；通过自动分片规划器（一个成本驱动的贪婪搜索算法），正式训练前将不同的embedding table分类到不同的cluster。  
 - **创新点**: 提前分类embedding table，优化资源利用。  
 - **不足之处**: 不适用于流式数据集，复杂交互支持有限。
 
-## 协同过滤与大语言模型
+## 预训练大模型
 
 ### 1. [FLIP: Fine-grained Alignment between ID-based Models and Pretrained Language Models for CTR Prediction](https://arxiv.org/html/2310.19453v4)
 - **作者/单位**: Shanghai Jiaotong University  
 - **关键词**: PLM, ID模型, 特征对齐  
-- **研究问题/目标**: 提升CTR预测能力，融合ID和文本特征。
+- **研究问题/目标**: 解决传统ID-based模型无法捕捉文本语义信息和PLM模型无法利用协同信号
 - **核心模型/方法**: 提出FLIP框架，利用ID模型和PLM模型进行细粒度的特征对齐；通过MLM任务（tabular data恢复masked text data）和MTM任务（cross attention模块与NCE损失函数建模tabular数据恢复）联合建模；使用InfoNCE进行实例级对比学习。  
 - **创新点**: 提出通用框架，实现ID与PLM特征对齐。
 
